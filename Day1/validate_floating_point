@@ -1,0 +1,37 @@
+#3.
+
+
+#!/bin/bash
+
+# Define a function to check if a string is a valid floating-point no.
+function is_number_valid_float() {
+  local input=$1
+  if [[ $input =~ ^[+-]?[0-9]*\.?[0-9]+([eE][+-]?[0-9]+)?$ ]]; then
+    return 0  # The input is  valid floating-point number
+  else
+    return 1  # The input is not  valid floating-point number
+  fi
+}
+
+# Test the function with some inputs
+input1="1.555"
+input2="3.5555"
+input3="not a valid float"
+
+if is_number_valid_float "$input1"; then
+  echo "$input1 is a valid floating-point number"
+else
+  echo "$input1 is not a valid floating-point number"
+fi
+
+if is_number_valid_float "$input2"; then
+  echo "$input2 is a valid floating-point number"
+else
+  echo "$input2 is not a valid floating-point number"
+fi
+
+if is_number_valid_float "$input3"; then
+  echo "$input3 is a valid floating-point number"
+else
+  echo "$input3 is not a valid floating-point number"
+fi
